@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/activity_home_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+        <LinearLayout
+            android:id="@+id/linearlayout_bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="true"
+            android:background="@color/colorBottomNavBackground"
+            android:layout_alignParentBottom="true">
+            <LinearLayout
+                android:id="@+id/linear_layout_movie"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_movie_home"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/star"
+                    android:layout_gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textview_movie_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/movie"
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_layout_community"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_community"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/icon_bottom_msg_gray"
+                    android:layout_gravity="center"
+                    android:clickable="false"/>
+                <TextView
+                    android:id="@+id/textview_community"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/community"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorGray"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    <com.timekiller.wannaseemovie.ui.customLayout.CustomViewPager
+        android:id="@+id/view_pager_custom"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/colorContentBackground"
+        android:layout_above="@id/linearlayout_bottom_nav">
+
+    </com.timekiller.wannaseemovie.ui.customLayout.CustomViewPager>
+
+</RelativeLayout>
