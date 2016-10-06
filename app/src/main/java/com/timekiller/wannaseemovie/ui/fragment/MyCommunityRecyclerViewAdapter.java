@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.timekiller.wannaseemovie.R;
 import com.timekiller.wannaseemovie.ui.fragment.CommunityFragment.OnListFragmentInteractionListener;
 import com.timekiller.wannaseemovie.ui.fragment.dummy.CommunityDummyContent.DummyItem;
@@ -47,6 +48,7 @@ public class MyCommunityRecyclerViewAdapter extends RecyclerView.Adapter<MyCommu
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
                     mListener.onListFragmentInteraction(holder.mItem);
+
                 }
             }
         });

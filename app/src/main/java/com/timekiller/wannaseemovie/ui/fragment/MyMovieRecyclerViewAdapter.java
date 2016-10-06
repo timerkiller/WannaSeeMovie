@@ -1,11 +1,13 @@
 package com.timekiller.wannaseemovie.ui.fragment;
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.timekiller.wannaseemovie.R;
 import com.timekiller.wannaseemovie.ui.fragment.MovieFragment.OnListFragmentInteractionListener;
 import com.timekiller.wannaseemovie.ui.fragment.dummy.MovieDummyContent.DummyItem;
@@ -40,6 +42,9 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
 
+        Uri uri = Uri.parse(mValues.get(position).url);
+        holder.mSimpleDraweeView.setImageURI(uri);
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +66,7 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final SimpleDraweeView mSimpleDraweeView;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
@@ -68,6 +74,7 @@ public class MyMovieRecyclerViewAdapter extends RecyclerView.Adapter<MyMovieRecy
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mSimpleDraweeView = (SimpleDraweeView)view.findViewById(R.id.my_image_view);
         }
 
         @Override

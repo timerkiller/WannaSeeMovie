@@ -123,9 +123,9 @@ public class HomeActivity extends AppCompatActivity implements
 
         mFragmentList = new ArrayList<>();
         MovieFragment movieFragment = MovieFragment.newInstance(3);
-        CommunityFragment communityFragment = CommunityFragment.newInstance(2);
-        movieFragment.onAttach(HomeActivity.this);
-        communityFragment.onAttach(HomeActivity.this);
+        CommunityFragment communityFragment = CommunityFragment.newInstance(1);
+        movieFragment.onAttach(this.getApplicationContext());
+        communityFragment.onAttach(this.getApplicationContext());
         mFragmentList.add(movieFragment);
         mFragmentList.add(communityFragment);
 
@@ -135,8 +135,6 @@ public class HomeActivity extends AppCompatActivity implements
         mViewPager.addOnPageChangeListener(new TabOnPageChangeListener());
 
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
