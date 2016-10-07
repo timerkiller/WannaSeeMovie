@@ -20,6 +20,8 @@ public class MovieDummyContent {
      */
     public static final List<DummyItem> ITEMS = new ArrayList<DummyItem>();
 
+
+
     /**
      * A map of sample (dummy) items, by ID.
      */
@@ -34,6 +36,7 @@ public class MovieDummyContent {
             addItem(createDummyItem(i,url));
         }
     }
+
 
     private static void addItem(DummyItem item) {
         ITEMS.add(item);

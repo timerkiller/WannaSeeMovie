@@ -1,0 +1,15 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- toolbar（actionbar）颜色 -->
+        <item name="colorPrimary">#4F2BA9</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">#3A5FCD</item>
+        <!--toobar 文字颜色-->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+
+        <!-- 底部导航栏颜色 -->
+        <item name="android:navigationBarColor">#4876FF</item>
+    </style>
+
+</resources>

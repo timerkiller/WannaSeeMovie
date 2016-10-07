@@ -60,9 +60,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class HomeActivity extends AppCompatActivity implements
-        View.OnClickListener
-        ,MovieFragment.OnListFragmentInteractionListener
-        ,CommunityFragment.OnListFragmentInteractionListener{
+        View.OnClickListener,MovieFragment.OnListFragmentInteractionListener,CommunityFragment.OnListFragmentInteractionListener{
 
     private final static String mTag="HomeActivity";
     private static Boolean isExit = false;
@@ -110,6 +108,10 @@ public class HomeActivity extends AppCompatActivity implements
         }
     };
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,9 +125,9 @@ public class HomeActivity extends AppCompatActivity implements
 
         mFragmentList = new ArrayList<>();
         MovieFragment movieFragment = MovieFragment.newInstance(3);
-        CommunityFragment communityFragment = CommunityFragment.newInstance(1);
-        movieFragment.onAttach(this.getApplicationContext());
-        communityFragment.onAttach(this.getApplicationContext());
+        CommunityFragment communityFragment = CommunityFragment.newInstance(3);
+        movieFragment.onAttach(HomeActivity.this);
+        communityFragment.onAttach(HomeActivity.this);
         mFragmentList.add(movieFragment);
         mFragmentList.add(communityFragment);
 
@@ -198,14 +200,14 @@ public class HomeActivity extends AppCompatActivity implements
         mToolbar.setTitle("Rocko");// 标题的文字需在setSupportActionBar之前，不然会无效
         setSupportActionBar(mToolbar);
         //noinspection ConstantConditions
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
-        ActionBar bar= getSupportActionBar();
-        if(bar != null){
-            bar.setDisplayHomeAsUpEnabled(true);
-        }
-        else {
-            Log.e(mTag,"Get SupportActionBar error");
-        }
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        ActionBar bar= getSupportActionBar();
+//        if(bar != null){
+//            bar.setDisplayHomeAsUpEnabled(true);
+//        }
+//        else {
+//            Log.e(mTag,"Get SupportActionBar error");
+//        }
 
         mDrawerLayout=(DrawerLayout)this.findViewById(R.id.drawer);
         /*init drawer */
@@ -294,11 +296,12 @@ public class HomeActivity extends AppCompatActivity implements
 
     @Override
     public void onListFragmentInteraction(MovieDummyContent.DummyItem item) {
-
+        Log.i(mTag,"MovieDummyContent onListFragmentInteraction");
     }
 
     @Override
     public void onListFragmentInteraction(CommunityDummyContent.DummyItem item) {
+        Log.i(mTag,"item MovieDummyContent onListFragmentInteraction");
 
     }
 

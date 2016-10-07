@@ -1,6 +1,8 @@
 package com.timekiller.wannaseemovie.ui.fragment;
 
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import java.util.List;
  */
 public class MyCommunityRecyclerViewAdapter extends RecyclerView.Adapter<MyCommunityRecyclerViewAdapter.ViewHolder> {
 
+    private final String mTag = "MyCommunityAdapter";
     private final List<DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
@@ -31,15 +34,23 @@ public class MyCommunityRecyclerViewAdapter extends RecyclerView.Adapter<MyCommu
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_item, parent, false);
+                .inflate(R.layout.fragment_community, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+//        holder.mIdView.setText(mValues.get(position).id);
+//        holder.mContentView.setText(mValues.get(position).content);
+        Uri uri = Uri.parse("http://image18.poco.cn/mypoco/myphoto/20160906/16/178343444201609061642092927346408251_000.jpg");
+        if(holder.mSimpleDraweeView == null){
+            Log.e(mTag,"mSimpleDraweeView is null");
+        }
+        else {
+            Log.e(mTag,"mSimpleDraweeView is not null");
+            holder.mSimpleDraweeView.setImageURI(uri);
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +65,8 @@ public class MyCommunityRecyclerViewAdapter extends RecyclerView.Adapter<MyCommu
         });
     }
 
+
+
     @Override
     public int getItemCount() {
         return mValues.size();
@@ -61,20 +74,22 @@ public class MyCommunityRecyclerViewAdapter extends RecyclerView.Adapter<MyCommu
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
-        public final TextView mContentView;
+//        public final TextView mIdView;
+//        public final TextView mContentView;
+        public final SimpleDraweeView mSimpleDraweeView;
         public DummyItem mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
-            mContentView = (TextView) view.findViewById(R.id.content);
+//            mIdView = (TextView) view.findViewById(R.id.id);
+//            mContentView = (TextView) view.findViewById(R.id.content);
+            mSimpleDraweeView = (SimpleDraweeView)view.findViewById(R.id.simple_draweeview_community);
         }
 
-        @Override
-        public String toString() {
-            return super.toString() + " '" + mContentView.getText() + "'";
-        }
+//        @Override
+//        public String toString() {
+//            return super.toString() + " '" + mContentView.getText() + "'";
+//        }
     }
 }

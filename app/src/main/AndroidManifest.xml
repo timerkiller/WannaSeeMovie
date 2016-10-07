@@ -11,8 +11,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MovieDetailActivity" />
-        <activity android:name=".ui.activity.HomeActivity">
+        <activity android:name=".ui.activity.MovieDetailActivity"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".ui.activity.HomeActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

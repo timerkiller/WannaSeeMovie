@@ -54,6 +54,8 @@ public class CommunityFragment extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class CommunityFragment extends Fragment {
                     + " must implement OnListFragmentInteractionListener");
         }
     }
+
+
 
     @Override
     public void onDetach() {
